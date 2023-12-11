@@ -1,28 +1,46 @@
-import './App.scss'
-import { useRef, useEffect } from 'react';
+import './sass/App.scss'
+// import { useRef, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Typed from 'typed.js';
+// import Typed from 'typed.js';
 import SiteNav from './layout/SiteNav';
+import { Routes, Route } from "react-router-dom";
+import HomePage from './views/HomePage';
+import About from "./views/About";
+import Contact from "./views/Contact";
+import Error from './views/Error';
+import Products from './views/Products';
+import Header from './layout/Header';
+import { useTranslation } from "react-i18next";
 
 function App() {
 
-  const el = useRef(null);
+  const { i18n } = useTranslation()
 
-  useEffect(() => {
-    const typed = new Typed(el.current, {
-      strings: ['Mohamed Ahmed ', 'Frontend developer.'],
-      typeSpeed: 50,
-    });
+  // const el = useRef(null);
 
-    return () => {
-      // Destroy Typed instance during cleanup to stop animation
-      typed.destroy();
-    };
-  }, []);
+  // useEffect(() => {
+  //   const typed = new Typed(el.current, {
+  //     strings: ['Mohamed Ahmed ', 'Frontend developer.'],
+  //     typeSpeed: 50,
+  //   });
+
+  //   return () => {
+  //     typed.destroy();
+  //   };
+  // }, []);
   return (
-    <div>
+    <div className={i18n.language === 'ar' ? "rtl" : ""}>
       <SiteNav />
-      <span ref={el} />
+      <Header />
+      {/* <span ref={el} /> */}
+
+      <Routes>
+        <Route path="/" Component={HomePage} />
+        <Route path="/about" Component={About} />
+        <Route path="/contact" Component={Contact} />
+        <Route path="/products" Component={Products} />
+        <Route path="/*" Component={Error} />
+      </Routes>
     </div>)
 }
 
