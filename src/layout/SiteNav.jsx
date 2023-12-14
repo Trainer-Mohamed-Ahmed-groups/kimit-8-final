@@ -3,9 +3,12 @@ import logo from "../../public/logo.jpg"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faMessage, faHeart, faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { useTranslation } from "react-i18next";
+import { useState } from 'react';
 export default function SiteNav() {
 
     const { t } = useTranslation()
+
+    let [searchValue, setSearchValue] = useState("")
 
 
     return (
@@ -17,7 +20,9 @@ export default function SiteNav() {
                     </Col>
                     <Col className="pt-2" md="7">
                         <InputGroup className="mb-3">
-                            <Form.Control aria-label="Text input with dropdown button" />
+                            <Form.Control
+                                aria-label="Text input with dropdown button"
+                                onChange={(ev) => setSearchValue(ev.target.value)} />
                             <DropdownButton
                                 variant="outline-secondary"
                                 title="Dropdown"

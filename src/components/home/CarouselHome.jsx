@@ -27,7 +27,7 @@ function CarouselHome() {
         }
     ]
     return (
-        <Carousel className="vh-100">
+        <Carousel>
             {
                 carouselItems.map(product =>
                     <Carousel.Item key={product.id} className="h-100">

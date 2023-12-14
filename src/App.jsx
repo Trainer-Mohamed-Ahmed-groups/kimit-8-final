@@ -11,6 +11,7 @@ import Error from './views/Error';
 import Products from './views/Products';
 import Header from './layout/Header';
 import { useTranslation } from "react-i18next";
+import ProductDetails from './components/products/ProductDetails';
 
 function App() {
 
@@ -39,6 +40,8 @@ function App() {
         <Route path="/about" Component={About} />
         <Route path="/contact" Component={Contact} />
         <Route path="/products" Component={Products} />
+        <Route path="/products" Component={Products} />
+        <Route path="/products/:productID" Component={ProductDetails} />
         <Route path="/*" Component={Error} />
       </Routes>
     </div>)
