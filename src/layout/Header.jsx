@@ -1,19 +1,25 @@
-import { Container, Navbar, Nav } from 'react-bootstrap';
+import { Container, Navbar, Nav, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLanguage } from '@fortawesome/free-solid-svg-icons'
+import { faLanguage, faMoon } from '@fortawesome/free-solid-svg-icons'
 import { useTranslation } from "react-i18next";
+import { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
+import { LanguageContext } from '../context/LangContext';
 
 
 
 export default function Header() {
-    const { t, i18n } = useTranslation()
+    const { t } = useTranslation()
 
-    let handleLanguage = () => {
-        i18n.language === 'en' ? i18n.changeLanguage('ar') : i18n.changeLanguage('en')
-    }
+    const theme = useContext(ThemeContext)
+    const language = useContext(LanguageContext)
+
+    console.log(language)
     return (
-        <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar
+            expand="lg"
+            variant={theme.theme}>
             <Container>
                 <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -23,8 +29,17 @@ export default function Header() {
                         <NavLink className='nav-link' to="/about">about</NavLink>
                         <NavLink className='nav-link' to="/contact">contact</NavLink>
                         <NavLink className='nav-link' to="/products">products</NavLink>
+                        <NavLink className='nav-link' to="/counter">Counter</NavLink>
                     </Nav>
-                    <FontAwesomeIcon icon={faLanguage} onClick={handleLanguage} />
+                    <FontAwesomeIcon
+                        className='mx-1'
+                        icon={faLanguage}
+                    onClick={language.handleLanguage}
+                    />
+                    <FontAwesomeIcon
+                        className='mx-1'
+                        onClick={theme.handleTheme}
+                        icon={faMoon} />
                 </Navbar.Collapse>
             </Container>
         </Navbar>

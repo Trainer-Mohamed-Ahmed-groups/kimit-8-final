@@ -1,6 +1,6 @@
-import './sass/App.scss'
 // import { useRef, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './sass/App.scss'
 // import Typed from 'typed.js';
 import SiteNav from './layout/SiteNav';
 import { Routes, Route } from "react-router-dom";
@@ -12,6 +12,9 @@ import Products from './views/Products';
 import Header from './layout/Header';
 import { useTranslation } from "react-i18next";
 import ProductDetails from './components/products/ProductDetails';
+import { useContext } from 'react';
+import { ThemeContext } from './context/ThemeContext';
+import Counter from './views/Counter';
 
 function App() {
 
@@ -29,8 +32,10 @@ function App() {
   //     typed.destroy();
   //   };
   // }, []);
+
+  let theme = useContext(ThemeContext)
   return (
-    <div className={i18n.language === 'ar' ? "rtl" : ""}>
+    <div className={`${i18n.language === 'ar' ? "rtl" : ""} ${theme.theme}`}>
       <SiteNav />
       <Header />
       {/* <span ref={el} /> */}
@@ -42,6 +47,7 @@ function App() {
         <Route path="/products" Component={Products} />
         <Route path="/products" Component={Products} />
         <Route path="/products/:productID" Component={ProductDetails} />
+        <Route path="/counter" Component={Counter} />
         <Route path="/*" Component={Error} />
       </Routes>
     </div>)
