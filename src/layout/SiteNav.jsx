@@ -40,7 +40,7 @@ export default function SiteNav() {
                         </InputGroup>
                     </Col>
                     <Col md={3} className="mt-2 d-flex justify-content-between">
-                        <Link to="/profile" className="nav_item d-flex justify-content-center flex-column text-center nav-link">
+                        <Link to="/profile" className="nav_item d-flex justify-content-center flex-column text-center nav-link fw-normal">
                             <FontAwesomeIcon icon={faUser} />
                             <div>{t('profile')}</div>
                         </Link>
