@@ -1,7 +1,7 @@
 import { Container, Navbar, Nav, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLanguage, faMoon } from '@fortawesome/free-solid-svg-icons'
+import { faLanguage, faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 import { useTranslation } from "react-i18next";
 import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
@@ -15,7 +15,6 @@ export default function Header() {
     const theme = useContext(ThemeContext)
     const language = useContext(LanguageContext)
 
-    console.log(language)
     return (
         <Navbar
             expand="lg"
@@ -34,12 +33,12 @@ export default function Header() {
                     <FontAwesomeIcon
                         className='mx-1'
                         icon={faLanguage}
-                    onClick={language.handleLanguage}
+                        onClick={language.handleLanguage}
                     />
                     <FontAwesomeIcon
-                        className='mx-1'
+                        className='mx-3'
                         onClick={theme.handleTheme}
-                        icon={faMoon} />
+                        icon={theme.theme === 'light' ? faMoon : faSun} />
                 </Navbar.Collapse>
             </Container>
         </Navbar>

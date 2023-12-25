@@ -1,6 +1,8 @@
 {
-    "profile":"Profile",
-    "messages":"Messages",
-    "order":"Orders",
-    "home":"home"
+    "profile": "Profile",
+    "messages": "Messages",
+    "order": "Orders",
+    "home": "home",
+    "delete_message": "Do you want to delete?",
+    "successfully_deleted": "Your product deleted successfully"
 }

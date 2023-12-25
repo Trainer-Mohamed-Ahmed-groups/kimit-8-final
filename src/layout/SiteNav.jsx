@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faMessage, faHeart, faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { useTranslation } from "react-i18next";
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 export default function SiteNav() {
 
     const { t } = useTranslation()
@@ -39,10 +40,10 @@ export default function SiteNav() {
                         </InputGroup>
                     </Col>
                     <Col md={3} className="mt-2 d-flex justify-content-between">
-                        <div className="nav_item d-flex justify-content-center flex-column text-center">
+                        <Link to="/profile" className="nav_item d-flex justify-content-center flex-column text-center nav-link">
                             <FontAwesomeIcon icon={faUser} />
                             <div>{t('profile')}</div>
-                        </div>
+                        </Link>
                         <div className="nav_item d-flex justify-content-center flex-column text-center">
                             <FontAwesomeIcon icon={faMessage} />
                             <div>{t('messages')}</div>

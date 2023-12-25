@@ -15,6 +15,8 @@ import ProductDetails from './components/products/ProductDetails';
 import { useContext } from 'react';
 import { ThemeContext } from './context/ThemeContext';
 import Counter from './views/Counter';
+import EditProduct from './components/products/EditProduct';
+import Profile from './views/Profile';
 
 function App() {
 
@@ -47,6 +49,8 @@ function App() {
         <Route path="/products" Component={Products} />
         <Route path="/products" Component={Products} />
         <Route path="/products/:productID" Component={ProductDetails} />
+        <Route path="/edit/:productID" Component={EditProduct} />
+        <Route path="/profile" Component={Profile} />
         <Route path="/counter" Component={Counter} />
         <Route path="/*" Component={Error} />
       </Routes>

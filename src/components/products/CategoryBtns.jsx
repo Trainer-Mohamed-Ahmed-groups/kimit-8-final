@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
 import { Button, ButtonGroup } from 'react-bootstrap';
-
-export default function CategoryBtns() {
+import { getProducts } from '../../helpers/fetch';
+export default function CategoryBtns({ handleFilter, setProducts }) {
 
     let [categories, setCategories] = useState([])
     let [filterValue, setFilterValue] = useState("")
@@ -18,12 +20,17 @@ export default function CategoryBtns() {
     }, [])
     return (
         <ButtonGroup aria-label="Basic example">
+            <Button
+                key={Math.random()}
+                variant="secondary"
+                onClick={() => getProducts(setProducts)}
+            >All</Button>
             {categories.map(category =>
                 <Button
                     key={Math.random()}
                     variant="secondary"
-                    name={category}
-                    onClick={(ev) => setFilterValue(ev.target.name)}
+                    // onClick={(ev) => setFilterValue(ev.target.name)}
+                    onClick={() => handleFilter(category)}
                 >{category}</Button>)}
         </ButtonGroup>
     )

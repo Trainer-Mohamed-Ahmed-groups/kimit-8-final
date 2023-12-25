@@ -1,7 +1,8 @@
 {
-    "profile":"الملف الشخصى",
-    "messages":"الرسائل",
-    "order":"الطلبات",
-    "home":"الرئيسية"
-
+    "profile": "الملف الشخصى",
+    "messages": "الرسائل",
+    "order": "الطلبات",
+    "home": "الرئيسية",
+    "delete_message": "هل تريد حدف المنتج?",
+    "successfully_deleted": "تم حذف المنتج بنجاح"
 }
